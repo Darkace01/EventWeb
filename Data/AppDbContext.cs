@@ -11,7 +11,7 @@ namespace EventWeb.Data
     public class AppDbContext : DbContext
     {
         public DbSet <Event> Events { get; set; }
-
+        public DbSet <Category> Categories { get; set; }
         public AppDbContext()
             : base("EventDb")
         {
