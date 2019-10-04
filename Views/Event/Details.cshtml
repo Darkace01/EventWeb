@@ -14,9 +14,19 @@
         <h1>@Html.DisplayFor(model => model.Name)</h1>
         <p>@Html.DisplayFor(model => model.Time.Date)</p>
         <p>@Html.DisplayFor(model => model.ShortDescription)</p>
-        <i class="fa fa-facebook-f fa-3x"></i>
-        <i class="fa fa-twitter fa-3x"></i>
-        <i class="fa fa-hashtag fa-3x"></i>
+        <div> Share This Event
+            <a href="https://www.facebook.com/sharer/sharer.php?
+     u=@Url.Encode(Request.Url.ToString())&t=@Url.Encode(Html.DisplayFor(model => model.Name).ToString())"
+               target="_blank">
+                <i class="fa fa-facebook-f fa-3x"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?
+   url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(Html.DisplayFor(model => model.Name).ToString())"
+               target="_blank" title="Tweet">
+                <i class="fa fa-twitter fa-3x"></i>
+            </a>
+        </div>
+
         <a class="btn btn-outline btn-success" href="#" role="button" style="width:100%;">Register</a>
     </div>
 </div>
