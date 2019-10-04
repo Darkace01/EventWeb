@@ -8,12 +8,12 @@
 <div class="container">
 
     <div class="col-lg-8">
-        <img class="img-responsive" src="@Url.Content(Model.imgUrl)">
+        <img class="img-responsive" src="@Url.Content(Model.ImgUrl)">
     </div>
     <div class="col-lg-4">
         <h1>@Html.DisplayFor(model => model.Name)</h1>
         <p>@Html.DisplayFor(model => model.Time.Date)</p>
-        <p>@Html.DisplayFor(model => model.shortDescription)</p>
+        <p>@Html.DisplayFor(model => model.ShortDescription)</p>
         <i class="fa fa-facebook-f fa-3x"></i>
         <i class="fa fa-twitter fa-3x"></i>
         <i class="fa fa-hashtag fa-3x"></i>
@@ -25,7 +25,7 @@
         <h2>About The Event</h2>
         <div class="col-lg-8">
             <h3>Desciption</h3>
-            <p>@Html.DisplayFor(model => model.longDescription)</p>
+            <p>@Html.DisplayFor(model => model.LongDescription)</p>
         </div>
         <div class="col-lg-4">
             <h3>Date and Time</h3>

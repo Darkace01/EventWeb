@@ -12,13 +12,13 @@ namespace EventWeb.Models
         public string Name { get; set; }
         public string Location { get; set; }
         [Display(Name = "Short Description")]
-        public string shortDescription { get; set; }
+        public string ShortDescription { get; set; }
         [Display(Name = "Long Description")]
-        public string longDescription { get; set; }
+        public string LongDescription { get; set; }
         public DateTime Time { get; set; }
         public int Attendees { get; set; }
         [Display(Name = "Category Name")]
-        public string categoryName { get; set; }
-        public string imgUrl { get; set; }
+        public string CategoryName { get; set; }
+        public string ImgUrl { get; set; }
     }
 }
