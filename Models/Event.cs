@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -12,7 +13,8 @@ namespace EventWeb.Models
         public string Location { get; set; }
         public string Time { get; set; }
         public int Attendees { get; set; }
-        public Category Category { get; set; }
+        [Display(Name = "Category Name")]
+        public string categoryName { get; set; }
         public int CategoryId { get; set; }
     }
 }
