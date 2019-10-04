@@ -3,40 +3,36 @@
 @{
     ViewBag.Title = "Details";
 }
+<br/>
 
-<h2>Details</h2>
+<div class="container">
 
-<div>
-    <h4>Event</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.categoryName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.categoryName)
-        </dd>
-
-    </dl>
+    <div class="col-lg-8">
+        <img class="img-responsive" src="@Url.Content(Model.imgUrl)">
+    </div>
+    <div class="col-lg-4">
+        <h1>@Html.DisplayFor(model => model.Name)</h1>
+        <p>@Html.DisplayFor(model => model.Time.Date)</p>
+        <p>@Html.DisplayFor(model => model.shortDescription)</p>
+        <i class="fa fa-facebook-f fa-3x"></i>
+        <i class="fa fa-twitter fa-3x"></i>
+        <i class="fa fa-hashtag fa-3x"></i>
+        <a class="btn btn-outline btn-success" href="#" role="button" style="width:100%;">Register</a>
+    </div>
 </div>
+
+    <div class="container">
+        <h2>About The Event</h2>
+        <div class="col-lg-8">
+            <h3>Desciption</h3>
+            <p>@Html.DisplayFor(model => model.longDescription)</p>
+        </div>
+        <div class="col-lg-4">
+            <h3>Date and Time</h3>
+            <p>@Html.DisplayFor(model => model.Time.Date)</p>
+        </div>
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-info"}) |
+    @Html.ActionLink("Back to List", "Index",null, new { @class="btn btn-info"})
 </p>
