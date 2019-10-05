@@ -8,14 +8,13 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
-            <div class="btn-group">
+            Sort By: <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Category <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a href="#">@Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.Category })</a></li>
                     <li><a href="#">@Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.Location })</a></li>
-                    <li><a href="#">Something else here</a></li>
                 </ul>
             </div>
         </div>
