@@ -6,28 +6,36 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <br />
 <div class="container">
+
+
     <div class="row">
-        <div class="col-lg-7"></div>
-        <div class="col-lg-2">
-            <span class="event-sort" style="font-size:1.7rem">Sort By </span><div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Category <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">@Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.Category })</a></li>
-                    <li><a href="#">@Html.ActionLink("Location", "Index", new { sortOrder = ViewBag.Location })</a></li>
-                </ul>
-            </div>  
-        </div>
-        <div class="col-lg-3">
-            @using (Html.BeginForm())
-            {
+        <div class="col-lg-4"></div>
+         
+        @using (Html.BeginForm())
+        {
+            <div class="col-lg-5">
+                <span class="event-sort" style="font-size:1.7rem">Select a Category </span>
+
+                <div class="btn-group"> 
+                <select class="form-control" name="category">
+                    <option value="">All</option>
+                    @foreach(var category in ViewBag.Categories as List<string>)
+                    {
+                        <option>@category</option>
+                    }
+                </select> 
+                </div>
+            </div>
+
+            <div class="col-lg-3">
                 <p>
-                    @Html.TextBox("SearchString",null ,new { placeholder="Search",style="height:35px; border-radius:5px;"})
+                    @Html.TextBox("SearchString", null, new { placeholder = "Search by location or title", style = "height:35px; border-radius:5px;" })
                     <input type="submit" value="Search" class="btn btn-success event-search" style="border-radius:0;width:auto; "/>
                 </p>
-            }
-        </div>
+            </div>
+
+        }
+          
     </div>
     
     <br />
@@ -39,25 +47,26 @@
         <div class="row">
             @foreach (var item in Model)
             {
+                
 
-                <div class="col-lg-4 col-md-4">
-                    <div>
-                        <div class="event-card" style="width: 37rem;">
-                            <img src="@Url.Content(item.ImgUrl)" class="card-img-top img-responsive" alt="...">
-                            <div class="event-card-header">
-                                <h5 class="event-card-title" style="text-align:center">@Html.DisplayFor(modelItem => item.Name)</h5>
-                                <p class="card-text">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
-                            </div>
-                            <ul class="event-list-group list-group-flush">
-                                <li class="event-list-group-item" style="text-align:center">@Html.DisplayFor(modelItem => item.Location) @Html.DisplayFor(modelItem => item.Time.Date)</li>
-
-                            </ul>
-                            @Html.ActionLink("Learn More", "Details", new { id = item.ID }, new { @class = "btn event-btn" })
+            <div class="col-lg-4 col-md-4" style="margin-bottom:20px;">
+                <a href="@Url.Action("Details", "event", new {id = item.ID })">
+                    <div class="event-card" style="width: 37rem;">
+                        <img src="@Url.Content(item.ImgUrl)" class="card-img-top img-responsive" alt="..." style="width:370px; height:230px;">
+                        <div class="event-card-header">
+                            <h5 class="event-card-title" style="text-align:center">@Html.DisplayFor(modelItem => item.Title)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.ShortDescription)</p>
                         </div>
-                    </div>
+                        <ul class="event-list-group list-group-flush">
+                            <li class="event-list-group-item" style="text-align:center">@Html.DisplayFor(modelItem => item.Location) @item.Time.Date.ToString("D")</li>
 
-                </div>
-                <br />
+                        </ul>
+                        @Html.ActionLink("Learn More", "Details", new { id = item.ID }, new { @class = "btn event-btn" })
+                    </div>
+                </a>
+                
+            </div>
+
             }
 
         </div>

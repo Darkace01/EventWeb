@@ -10,7 +10,7 @@ namespace EventWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("index", "event");
         }
 
         public ActionResult About()

@@ -11,17 +11,17 @@
         <img class="img-responsive" src="@Url.Content(Model.ImgUrl)">
     </div>
     <div class="col-lg-4">
-        <h1>@Html.DisplayFor(model => model.Name)</h1>
+        <h1>@Html.DisplayFor(model => model.Title)</h1>
         <p>@Html.DisplayFor(model => model.Time.Date)</p>
         <p>@Html.DisplayFor(model => model.ShortDescription)</p>
         <div> Share This Event
             <a href="https://www.facebook.com/sharer/sharer.php?
-     u=@Url.Encode(Request.Url.ToString())&t=@Url.Encode(Html.DisplayFor(model => model.Name).ToString())"
+     u=@Url.Encode(Request.Url.ToString())&t=@Url.Encode(Html.DisplayFor(model => model.Title).ToString())"
                target="_blank">
                 <i class="fa fa-facebook-f fa-3x"></i>
             </a>
             <a href="https://twitter.com/intent/tweet?
-   url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(Html.DisplayFor(model => model.Name).ToString())"
+   url=@Url.Encode(Request.Url.ToString())&text=@Url.Encode(Html.DisplayFor(model => model.Title).ToString())"
                target="_blank" title="Tweet">
                 <i class="fa fa-twitter fa-3x"></i>
             </a>
@@ -38,11 +38,10 @@
             <p>@Html.DisplayFor(model => model.LongDescription)</p>
         </div>
         <div class="col-lg-4">
-            <h3>Date and Time</h3>
-            <p>@Html.DisplayFor(model => model.Time.Date)</p>
+            <h3>Happening on</h3>
+            <p>@Model.Time.Date.ToString("D")</p>
         </div>
     </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class="btn btn-info"}) |
-    @Html.ActionLink("Back to List", "Index",null, new { @class="btn btn-info"})
+<p> 
+    @Html.ActionLink("Back to all events", "Index",null, new { @class="btn btn-info"})
 </p>
